@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   env: {
     es6: true,
@@ -37,7 +39,17 @@ module.exports = {
       },
       node: {
         extensions: [".js", ".jsx", "ts", ".tsx"]
-      }
+      },
+      webpack: {
+        config: {
+          resolve: {
+            alias: {
+              '~': path.join(__dirname, 'src/'),
+            },
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          },
+        },
+      },
     }
   },
   globals: {
@@ -79,6 +91,17 @@ module.exports = {
     ],
     "max-classes-per-file": 0,
     "import/prefer-default-export": 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+        mjs: 'never',
+      },
+    ],
     "react/prefer-stateless-function": 0,
     "react/destructuring-assignment": 0,
     "react/prop-types": 0,
