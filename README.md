@@ -1,0 +1,1 @@
+# react_native_typescript_basic_template
